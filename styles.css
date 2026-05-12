@@ -3556,20 +3556,15 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
     height: 115px;
   }
 }
-/* ZAPPY_POSTGEN_GUARD_RTL_ORDER:בית-benefits — stripped 1 order declaration(s) conflicting with RTL grid */
-
-
-/* testimonials */
 .index-testimonials-section {
   position: relative;
   overflow: visible;
   background-color: #5E6751;
-  background-image:
-    radial-gradient(ellipse at 80% 10%, rgba(158,182,176,0.12) 0%, transparent 55%),
+  background-image: radial-gradient(ellipse at 80% 10%, rgba(158,182,176,0.12) 0%, transparent 55%),
     radial-gradient(ellipse at 10% 90%, rgba(183,116,90,0.10) 0%, transparent 50%),
     linear-gradient(180deg, #5E6751 0%, #4A5340 100%);
   color: var(--text-light);
-  padding: 96px 24px 120px;
+  padding: 32px 24px 120px;
   direction: rtl;
 }
 
@@ -9055,6 +9050,10 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
 #mic-init-access-tool #mic-access-tool-general-button,
 ._access-icon {
   display: flex !important;
+}
+
+.index-testimonials-section .index-testimonials-section__header {
+  margin-bottom: 40px;
 }
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
