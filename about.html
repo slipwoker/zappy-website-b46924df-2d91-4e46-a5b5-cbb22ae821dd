@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>הכירו את הלב שמאחורי הפנסיון — דוגטאון פנסיון בוטיק</title>
+    <meta name="description" content="אנחנו מאמינים שכל כלב קטן — פומרניאן, קורגי או שיצו — ראוי לטיפול חם ומקצועי. גלו את הפילוסופיה שלנו, את שיטת החיזוקים החיוביים ואת הצוות שיאהב את הכלב שלכם כמוכם.">
+    <meta name="keywords" content="פנסיון בוטיק לכלבים, אילוף גורים בחיזוקים חיוביים, אילוף כלבים קטנים, שיטת חיזוקים חיוביים, טיפול בכלבים קטנים">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: 'b46924df-2d91-4e46-a5b5-cbb22ae821dd',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="הכירו את הלב שמאחורי הפנסיון — דוגטאון פנסיון בוטיק">
+    <meta property="og:description" content="אנחנו מאמינים שכל כלב קטן — פומרניאן, קורגי או שיצו — ראוי לטיפול חם ומקצועי. גלו את הפילוסופיה שלנו, את שיטת החיזוקים החיוביים ואת הצוות שיאהב את הכלב שלכם כמוכם.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="הכירו את הלב שמאחורי הפנסיון — דוגטאון פנסיון בוטיק">
+    <meta name="twitter:description" content="אנחנו מאמינים שכל כלב קטן — פומרניאן, קורגי או שיצו — ראוי לטיפול חם ומקצועי. גלו את הפילוסופיה שלנו, את שיטת החיזוקים החיוביים ואת הצוות שיאהב את הכלב שלכם כמוכם.">
+    <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .skip-link { position: absolute; left: -9999px; top: 0; padding: 12px 18px; background: var(--bg-dark, #1a1a1a); color: var(--text-light, #fff); font-weight: 600; border-radius: 0 0 8px 0; z-index: 10000; }
+    .skip-link:focus { left: 0; outline: 2px solid var(--ring, #fff); outline-offset: 2px; }
+    :focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 3px; }
+  </style>
+
+
+  
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+      [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 10px !important; padding-right: 28px !important; }
+      .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus (exclude catalog sub-menus that use <a> children instead of <li>) */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))):not(:has(> a)), .sub-menu:not(:has(li)):not(:has(> a)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .navbar .sub-menu.mobile-expanded, .nav-menu .sub-menu.mobile-expanded, #navMenu .sub-menu.mobile-expanded { max-height: none !important; overflow-y: visible !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-dark) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-dark) !important; white-space: normal !important; }
+        .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+        [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 0 !important; padding-right: 28px !important; }
+        .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+        .nav-menu.active, #navMenu.active { max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-dark) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+      html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+      html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
+      html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="ltr"] ._access-icon,
+      html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
+      html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
+      @media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+      @media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+      @media (max-width: 768px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+      @media (min-width: 769px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+
+  <button class="phone-header-btn" data-phone="" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+
+  <div class="nav-container">
+    <div class="nav-right-group"><div class="nav-brand">
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-------image-1.webp" alt="דוגטאון פנסיון בוטיק"></a>
+    </div><ul class="nav-menu" id="navMenu"><li><a href="/">בית</a></li><li><a href="/services">שירותים</a></li><li><a href="/about">אודות</a></li></ul></div>
+
+    
+
+    <div class="nav-cta-container">
+      <a href="/contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+<script>
+
+// Navbar Mobile Menu Toggle and Contrast Fix
+(function() {
+  // Use 'load' event instead of 'DOMContentLoaded' to ensure we run AFTER all other scripts
+  window.addEventListener('load', function() {
+    
+    // FIX MOBILE BUTTON CONTRAST
+    // Detect navbar background color and apply contrasting color to mobile buttons
+    const navbar = document.querySelector('.navbar, nav, header');
+    if (!navbar) {
+      console.log('[Navbar] Navbar element not found');
+      return;
+    }
+    
+    // DECLARE VARIABLES EARLY to avoid Temporal Dead Zone errors
+    // These are used in multiple places below
+    let mobileToggle = document.getElementById('mobileToggle') ||
+                       document.querySelector('.mobile-toggle') ||
+                       document.querySelector('.hamburger') ||
+                       document.querySelector('.hamburger-menu') ||
+                       document.querySelector('.menu-toggle') ||
+                       document.querySelector('.burger-menu') ||
+                       document.querySelector('[aria-label="Menu"]') ||
+                       document.querySelector('[aria-label="תפריט"]');
+    
+    const phoneBtn = document.querySelector('.phone-header-btn');
+    
+    const computedStyle = window.getComputedStyle(navbar);
+    let bgColor = computedStyle.backgroundColor;
+    
+    console.log('[Navbar] Initial navbar background:', bgColor);
+    
+    // Check if background is transparent or rgba with 0 alpha
+    const isTransparent = bgColor === 'transparent' || 
+                         bgColor === 'rgba(0, 0, 0, 0)' ||
+                         (bgColor.startsWith('rgba') && bgColor.includes(', 0)'));
+    
+    if (isTransparent) {
+      // Check for background-image or gradient
+      const bgImage = computedStyle.backgroundImage;
+      if (bgImage && bgImage !== 'none') {
+        console.log('[Navbar] Navbar has background image/gradient, using dark text');
+        bgColor = 'rgb(240, 240, 240)'; // Assume light background
+      } else {
+        // Transparent navbar - check body background
+        const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+        console.log('[Navbar] Navbar transparent, using body background:', bodyBg);
+        bgColor = bodyBg;
+      }
+    }
+    
+    // Calculate luminance to determine if background is light or dark
+    const rgb = bgColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      
+      // Mobile button colors are set by Claude's AI-generated CSS (same as .nav-menu a)
+      // No dynamic color overrides needed - colors come from the generated navbar CSS
+      console.log('[Navbar] Mobile button colors preserved from Claude CSS (luminance:', luminance.toFixed(2) + ')');
+      
+      // FIX ICON SIZES - Ensure SVGs are properly sized and visible
+      // INJECT CRITICAL CSS TO OVERRIDE ANY CONFLICTING RULES
+      const criticalCSS = document.createElement('style');
+      criticalCSS.id = 'zappy-mobile-nav-fix';
+      const htmlLang = document.documentElement.lang || 'en';
+      const htmlDir = document.documentElement.dir || 'ltr';
+      // Check both dir attribute AND lang for RTL detection
+      // dir="rtl" is the most reliable indicator
+      const isRTL = htmlDir === 'rtl' || htmlLang === 'he' || htmlLang === 'ar';
+      
+      criticalCSS.textContent = `
+        /* Hide mobile buttons on desktop, show only on mobile */
+        @media (min-width: 769px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            display: none !important;
+          }
+        }
+        
+        /* Show and position mobile buttons correctly on mobile */
+        @media (max-width: 768px) {
+          .navbar,
+          nav.navbar {
+            min-height: 70px !important;
+          }
+
+          .mobile-toggle,
+          .phone-header-btn {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+            transform: none !important;
+            z-index: 1001 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 6px !important;
+            background: none !important;
+            color: var(--nav-text, var(--text-dark)) !important;
+            touch-action: manipulation !important;
+            -webkit-tap-highlight-color: transparent !important;
+          }
+
+          html[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          body[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] header .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] nav .phone-header-btn {
+            display: none !important;
+            visibility: hidden !important;
+            width: 0 !important;
+            height: 0 !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+          
+          /* LTR positioning (default): hamburger LEFT, phone RIGHT */
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+          html[dir="ltr"] .mobile-toggle {
+            left: 12px !important;
+            right: auto !important;
+          }
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+          html[dir="ltr"] .phone-header-btn {
+            right: 12px !important;
+            left: auto !important;
+          }
+          
+          /* RTL positioning: hamburger RIGHT, phone LEFT */
+          html[dir="rtl"] .mobile-toggle,
+          html[lang="he"] .mobile-toggle,
+          html[lang="ar"] .mobile-toggle {
+            right: 12px !important;
+            left: auto !important;
+          }
+          html[dir="rtl"] .phone-header-btn,
+          html[lang="he"] .phone-header-btn,
+          html[lang="ar"] .phone-header-btn {
+            left: 12px !important;
+            right: auto !important;
+          }
+          
+          /* CRITICAL: Ensure nav-container has min-height on mobile */
+          /* All children are positioned absolutely/fixed on mobile, so height:auto collapses to 0 */
+          .nav-container {
+            min-height: 70px !important;
+            position: relative !important;
+          }
+          
+          /* Ensure SVG icons are properly sized and inherit color */
+          .mobile-toggle svg,
+          .phone-header-btn svg {
+            width: 24px !important;
+            height: 24px !important;
+            /* Don't force display - let JavaScript control hamburger/close toggle */
+          }
+          
+          /* Reset nav-cta-container on mobile - remove desktop box-shadow/padding */
+          /* that creates a visible ghost box when CTA button is hidden */
+          .nav-cta-container {
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide nav-cta-container entirely on mobile when there's no lang-switcher */
+          /* (only the CTA button is inside, and it's hidden on mobile) */
+          .nav-cta-container:not(:has(.lang-switcher)) {
+            display: none !important;
+          }
+          
+          /* CRITICAL: Prevent hero image fade gradient from bleeding over headline text */
+          /* The .image-fade-gradient has bottom: -30px (extends below parent) */
+          /* On mobile stacked layout, this overlaps the h1 text below the image */
+          .hero-image-column {
+            overflow: hidden !important;
+          }
+          .image-fade-gradient {
+            bottom: 0 !important;
+          }
+          
+          /* Hide desktop language switcher on mobile - hamburger menu handles it */
+          /* High specificity to override stored CSS */
+          .lang-switcher,
+          .nav-cta-container .lang-switcher,
+          .nav-container .lang-switcher,
+          .navbar .lang-switcher,
+          .navbar .nav-cta-container .lang-switcher {
+            display: none !important;
+          }
+        }
+      `;
+      
+      // Remove existing fix if present and inject new one
+      const existing = document.getElementById('zappy-mobile-nav-fix');
+      if (existing) existing.remove();
+      document.head.appendChild(criticalCSS);
+      
+      console.log('[Navbar] Critical CSS injected for mobile nav positioning');
+      
+      // ONLY apply inline positioning styles on mobile viewport
+      // On desktop, the CSS handles hiding these buttons with display: none
+      // Inline styles were breaking desktop layout by overriding CSS
+      const isMobileViewport = window.innerWidth <= 768;
+      
+      if (mobileToggle) {
+        // Icon sizing applies to all viewports for consistency
+        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+        const closeIcon = mobileToggle.querySelector('.close-icon');
+        
+        if (hamburgerIcon) {
+          hamburgerIcon.style.setProperty('width', '24px', 'important');
+          hamburgerIcon.style.setProperty('height', '24px', 'important');
+          hamburgerIcon.style.setProperty('display', 'block', 'important'); // Show hamburger by default
+        }
+        if (closeIcon) {
+          closeIcon.style.setProperty('width', '24px', 'important');
+          closeIcon.style.setProperty('height', '24px', 'important');
+          closeIcon.style.setProperty('display', 'none', 'important'); // Hide close icon by default
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          mobileToggle.style.setProperty('position', 'absolute', 'important');
+          mobileToggle.style.setProperty('top', '0', 'important');
+          mobileToggle.style.setProperty('bottom', '0', 'important');
+          mobileToggle.style.setProperty('margin-top', 'auto', 'important');
+          mobileToggle.style.setProperty('margin-bottom', 'auto', 'important');
+          mobileToggle.style.setProperty('transform', 'none', 'important');
+          mobileToggle.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          
+          console.log('[Navbar] Mobile toggle positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          mobileToggle.style.removeProperty('position');
+          mobileToggle.style.removeProperty('top');
+          mobileToggle.style.removeProperty('transform');
+          mobileToggle.style.removeProperty('z-index');
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared mobile toggle inline positioning');
+        }
+      }
+      
+      if (phoneBtn) {
+        // Icon sizing applies to all viewports
+        const phoneIcon = phoneBtn.querySelector('svg');
+        if (phoneIcon) {
+          phoneIcon.style.width = '24px';
+          phoneIcon.style.height = '24px';
+          phoneIcon.setAttribute('width', '24');
+          phoneIcon.setAttribute('height', '24');
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          phoneBtn.style.setProperty('position', 'absolute', 'important');
+          phoneBtn.style.setProperty('top', '0', 'important');
+          phoneBtn.style.setProperty('bottom', '0', 'important');
+          phoneBtn.style.setProperty('margin-top', 'auto', 'important');
+          phoneBtn.style.setProperty('margin-bottom', 'auto', 'important');
+          phoneBtn.style.setProperty('transform', 'none', 'important');
+          phoneBtn.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          
+          console.log('[Navbar] Phone button positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          phoneBtn.style.removeProperty('position');
+          phoneBtn.style.removeProperty('top');
+          phoneBtn.style.removeProperty('transform');
+          phoneBtn.style.removeProperty('z-index');
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared phone button inline positioning');
+        }
+      }
+    } else {
+      console.log('[Navbar] Could not parse background color:', bgColor);
+    }
+    
+    // MOBILE MENU TOGGLE
+    // Re-query in case DOM changed (mobileToggle already declared at top of function)
+    mobileToggle = document.getElementById('mobileToggle') ||
+                   document.querySelector('.mobile-toggle') ||
+                   document.querySelector('.hamburger') ||
+                   document.querySelector('.hamburger-menu') ||
+                   document.querySelector('.menu-toggle') ||
+                   document.querySelector('.burger-menu') ||
+                   document.querySelector('[aria-label="Menu"]') ||
+                   document.querySelector('[aria-label="תפריט"]');
+    
+    // EXPANDED SEARCH: Find nav menu by ID or class
+    const navMenu = document.getElementById('navMenu') ||
+                  document.querySelector('.nav-menu') ||
+                  document.querySelector('.nav-links') ||
+                  document.querySelector('nav ul:not(.submenu)');
+    
+    if (!mobileToggle || !navMenu) {
+      console.log('[Navbar] Mobile toggle or menu not found:', { toggle: !!mobileToggle, menu: !!navMenu });
+      return;
+    }
+    
+    // Ensure navMenu has ID for CSS targeting
+    if (!navMenu.id) {
+      navMenu.id = 'navMenu';
+    }
+    
+    console.log('[Navbar] Initializing mobile menu...');
+    
+    // Remove any existing event listeners by cloning the button
+    const newToggle = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+    
+    // Toggle menu handler (shared by click and touchend)
+    function handleToggle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+      const closeIcon = newToggle.querySelector('.close-icon');
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
+        document.body.style.overflow = 'hidden';
+        console.log('[Navbar] Menu opened');
+      }
+    }
+    
+    // Use click for desktop/emulation and touchend as iOS Safari fallback.
+    // Prevent double-fire with a timestamp guard.
+    var lastToggleTime = 0;
+    function guardedToggle(e) {
+      var now = Date.now();
+      if (now - lastToggleTime < 300) return;
+      lastToggleTime = now;
+      handleToggle(e);
+    }
+    
+    newToggle.addEventListener('click', guardedToggle);
+    newToggle.addEventListener('touchend', guardedToggle);
+    
+    // Close menu when clicking nav links (but NOT dropdown toggles)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Don't close if it's a dropdown child (unless it's a real navigation link)
+        if (this.getAttribute('href') === '#') return;
+        
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed (link clicked)');
+      });
+    });
+    
+    // DROPDOWN MENU TOGGLE (for mobile and touch devices)
+    var dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = this.closest('.nav-dropdown');
+        if (!parent) return;
+        
+        // Close other open dropdowns at the same level
+        var siblings = parent.parentNode.querySelectorAll('.nav-dropdown.open');
+        siblings.forEach(function(sib) {
+          if (sib !== parent) sib.classList.remove('open');
+        });
+        
+        parent.classList.toggle('open');
+        console.log('[Navbar] Dropdown toggled:', parent.classList.contains('open') ? 'open' : 'closed');
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        var openDropdowns = document.querySelectorAll('.nav-dropdown.open');
+        openDropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+      }
+    });
+    
+    console.log('[Navbar] Dropdown handlers initialized for ' + dropdownToggles.length + ' dropdowns');
+    
+    // Phone button functionality (phoneBtn already declared at top of function)
+    if (phoneBtn) {
+      phoneBtn.addEventListener('click', function() {
+        // Get phone number from placeholder in page or use default
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const phoneNumber = phoneLinks.length > 0 
+          ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+          : '[business_phone]';
+        
+        window.location.href = 'tel:' + phoneNumber;
+        console.log('[Navbar] Phone button clicked');
+      });
+    }
+    
+    console.log('[Navbar] Mobile menu initialized successfully');
+    
+    // WhatsApp button visibility is now controlled via CSS (siteSettings).
+    // No JS-based desktop hiding — the button is visible on both mobile and desktop by default.
+  });
+})();
+
+</script>
+  
+  <main id="main">
+    <section class="about-story-section" data-layout-spec="אודות-story" dir="rtl">
+  <!-- Decorative olive branch motif -->
+  <div class="story-deco-branch" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="220">
+      <path d="M90 210 C90 210 85 170 80 140 C75 110 60 95 45 80 C30 65 20 50 25 30" stroke="#4A7C59" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+      <ellipse cx="55" cy="88" rx="12" ry="7" fill="#4A7C59" transform="rotate(-30 55 88)"></ellipse>
+      <ellipse cx="38" cy="72" rx="11" ry="6" fill="#4A7C59" transform="rotate(-50 38 72)"></ellipse>
+      <ellipse cx="68" cy="105" rx="12" ry="7" fill="#4A7C59" transform="rotate(-15 68 105)"></ellipse>
+      <ellipse cx="75" cy="125" rx="10" ry="6" fill="#4A7C59" transform="rotate(-10 75 125)"></ellipse>
+      <ellipse cx="28" cy="55" rx="10" ry="6" fill="#4A7C59" transform="rotate(-65 28 55)"></ellipse>
+      <ellipse cx="48" cy="62" rx="11" ry="6" fill="#4A7C59" transform="rotate(-40 48 62)"></ellipse>
+      <ellipse cx="82" cy="145" rx="9" ry="5" fill="#4A7C59" transform="rotate(-5 82 145)"></ellipse>
+    </svg>
+  </div>
+
+  <div class="story-container">
+    <!-- Content Column -->
+    <div class="story-content">
+      <span class="story-eyebrow">הסיפור שלנו</span>
+      <h1 class="story-title">מקום שבו כל כלב מרגיש <em>בבית</em></h1>
+      <p class="story-intro">דוגטאון נולד מתוך אהבה אמיתית לכלבים קטנים — אותם יצורים עדינים, מלאי אישיות, שבעיני בעליהם הם בני משפחה לכל דבר. אנחנו מאמינים שכל גור וכל כלב קטן ראוי לטיפול שמכבד את הקצב שלו, את הצרכים שלו, ואת הקשר המיוחד שיצרתם יחד.</p>
+      <p class="story-body">בפנסיון הבוטיק שלנו, האילוף מבוסס על <strong>חיזוקים חיוביים ותגמול</strong> — שיטה שבונה אמון, לא פחד. אנחנו עובדים עם פומרניין, קורגי, שיצו וגזעים קטנים נוספים, ומתאימים כל תוכנית אישית לאופי הייחודי של הכלב שלכם. כאן, כל ביקור — בין אם סשן אילוף פרטי, פנסיון אילוף או לינה רגילה — מלווה בתשומת לב אישית, סביבה שקטה ומטפחת, ולב פתוח.</p>
+
+      <!-- Trust badges -->
+      <div class="story-badges">
+        <div class="story-badge">
+          <span class="badge-icon" aria-hidden="true">
+            <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+              <path d="M12 21C12 21 3 15 3 8.5C3 6.01 5.01 4 7.5 4C9.24 4 10.77 4.94 11.58 6.35L12 7L12.42 6.35C13.23 4.94 14.76 4 16.5 4C18.99 4 21 6.01 21 8.5C21 15 12 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <span>גישת חיזוקים חיוביים</span>
+        </div>
+        <div class="story-badge">
+          <span class="badge-icon" aria-hidden="true">
+            <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"></circle>
+              <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <span>פתוח 7 ימים בשבוע</span>
+        </div>
+        <div class="story-badge">
+          <span class="badge-icon" aria-hidden="true">
+            <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+              <path d="M3 9L12 3L21 9V20C21 20.55 20.55 21 20 21H15V15H9V21H4C3.45 21 3 20.55 3 20V9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <span>סביבה בוטיק אינטימית</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Column -->
+    <div class="story-image-col">
+      <div class="story-image-wrapper">
+        <img loading="eager" fetchpriority="high" data-placeholder="about-story-image-1" data-context="A warm lifestyle photograph of a small fluffy dog (like a Pomeranian or Shih Tzu) being gently held or trained by a caring trainer in a cozy, earthy-toned boutique boarding environment. Natural light, warm sandy tones, green plants in background, candid and nurturing atmosphere. The dog looks relaxed and happy. Soft bokeh background with wooden or natural textures." width="560" height="760" src="/assets/site-about-story-image-1.webp" alt="כלב קטן מאושר בפנסיון הבוטיק דוגטאון">
+        <!-- Floating accent card -->
+        <div class="story-float-card">
+          <span class="float-card-num">100%</span>
+          <span class="float-card-label">אהבה ומקצועיות</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom SVG divider -->
+  <div class="about-story-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,42 C60,36 120,48 200,40 C280,32 360,50 440,44 C520,38 600,52 680,46 C760,40 840,30 920,36 C1000,42 1080,54 1160,46 C1240,38 1320,44 1440,38 L1440,80 Z" fill="#F5EFE6"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-values-section" data-layout-spec="אודות-values" dir="rtl">
+  <!-- Decorative olive branch top-right -->
+  <svg class="about-values-deco-branch" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M130,10 Q120,40 100,60 Q80,80 70,110 Q60,140 50,180" stroke="#4A7C59" stroke-width="1.5" fill="none" opacity="0.22"></path>
+    <ellipse cx="118" cy="28" rx="10" ry="6" fill="#4A7C59" opacity="0.22" transform="rotate(-30 118 28)"></ellipse>
+    <ellipse cx="108" cy="48" rx="9" ry="5" fill="#4A7C59" opacity="0.20" transform="rotate(-20 108 48)"></ellipse>
+    <ellipse cx="92" cy="68" rx="10" ry="6" fill="#4A7C59" opacity="0.22" transform="rotate(-10 92 68)"></ellipse>
+    <ellipse cx="80" cy="90" rx="9" ry="5" fill="#4A7C59" opacity="0.18" transform="rotate(5 80 90)"></ellipse>
+    <ellipse cx="68" cy="112" rx="10" ry="6" fill="#4A7C59" opacity="0.20" transform="rotate(15 68 112)"></ellipse>
+    <ellipse cx="58" cy="135" rx="9" ry="5" fill="#4A7C59" opacity="0.18" transform="rotate(20 58 135)"></ellipse>
+  </svg>
+
+  <div class="about-values-container">
+    <!-- Section Header -->
+    <header class="about-values-header">
+      <span class="about-values-eyebrow">הדרך שלנו</span>
+      <h2 class="about-values-title">הערכים שמנחים כל טיפול ואילוף</h2>
+      <p class="about-values-subtitle">אנחנו מאמינים שכל כלב ראוי לגישה אדיבה, סבלנית ומותאמת אישית — ושהבעלים ראויים לשקט נפשי אמיתי.</p>
+    </header>
+
+    <!-- Values Grid -->
+    <div class="about-values-grid">
+
+      <!-- Card 1: Kindness -->
+      <article class="about-values-card">
+        <div class="about-values-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true">
+            <path d="M24 42C24 42 8 32 8 20C8 15.6 11.6 12 16 12C19.2 12 22 13.8 24 16.4C26 13.8 28.8 12 32 12C36.4 12 40 15.6 40 20C40 32 24 42 24 42Z" stroke="#B7745A" stroke-width="1.8" fill="rgba(183,116,90,0.12)"></path>
+          </svg>
+        </div>
+        <div class="about-values-card-content">
+          <h3 class="about-values-card-title">אדיבות בכל רגע</h3>
+          <p class="about-values-card-text">גישת החיזוקים החיוביים שלנו מבוססת על תגמול, עידוד ואהבה — לא על עונש. כל כלב לומד בקצב שלו, בסביבה בטוחה ומחבקת.</p>
+          <div class="about-values-card-accent"></div>
+        </div>
+      </article>
+
+      <!-- Card 2: Consistency -->
+      <article class="about-values-card">
+        <div class="about-values-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true">
+            <circle cx="24" cy="24" r="14" stroke="#7A8668" stroke-width="1.8" fill="rgba(122,134,104,0.10)"></circle>
+            <path d="M24 16 L24 24 L30 28" stroke="#7A8668" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div class="about-values-card-content">
+          <h3 class="about-values-card-title">עקביות ושגרה בריאה</h3>
+          <p class="about-values-card-text">כלבים קטנים כמו פומרניין, קורגי ושיצו משגשגים בשגרה ברורה. אנחנו שומרים על לוח זמנים יציב, ארוחות, משחק ומנוחה — שבעה ימים בשבוע.</p>
+          <div class="about-values-card-accent"></div>
+        </div>
+      </article>
+
+      <!-- Card 3: Safety -->
+      <article class="about-values-card">
+        <div class="about-values-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true">
+            <path d="M24 8 L38 14 L38 26 C38 34 31 40 24 42 C17 40 10 34 10 26 L10 14 Z" stroke="#9EB6B0" stroke-width="1.8" fill="rgba(158,182,176,0.12)"></path>
+            <path d="M18 24 L22 28 L30 20" stroke="#9EB6B0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="about-values-card-content">
+          <h3 class="about-values-card-title">בטיחות ללא פשרות</h3>
+          <p class="about-values-card-text">הפנסיון הבוטיק שלנו מיועד לכלבים קטנים ובינוניים בלבד. הסביבה מותאמת לגודלם, לאנרגיה שלהם ולצרכים הייחודיים שלהם — כי כלב קטן הוא לא כלב גדול ממוזער.</p>
+          <div class="about-values-card-accent"></div>
+        </div>
+      </article>
+
+      <!-- Card 4: Transparency -->
+      <article class="about-values-card">
+        <div class="about-values-card-icon">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true">
+            <path d="M12 16 L36 16 M12 24 L30 24 M12 32 L26 32" stroke="#B7745A" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="38" cy="32" r="6" stroke="#B7745A" stroke-width="1.6" fill="rgba(183,116,90,0.10)"></circle>
+            <path d="M36 32 L37.5 33.5 L40.5 30.5" stroke="#B7745A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="about-values-card-content">
+          <h3 class="about-values-card-title">שקיפות עם הבעלים</h3>
+          <p class="about-values-card-text">אנחנו מאמינים בתקשורת פתוחה עם כל בעל כלב. תמיד תדעו מה קורה, איך הכלב שלכם מתקדם ומה השלב הבא — כי שיתוף פעולה הוא הבסיס לאילוף מוצלח.</p>
+          <div class="about-values-card-accent"></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Bottom slope divider transitioning to next section -->
+  <div class="about-values-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,70 L0,40 Q200,10 400,28 Q600,46 800,20 Q1000,0 1200,32 L1200,70 Z" fill="#5E6751"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-environment-section" data-layout-spec="אודות-environment" dir="rtl">
+  <!-- Decorative olive branch SVG -->
+  <svg class="env-deco-branch" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M80 190 Q70 160 60 130 Q45 100 30 80 Q15 60 10 30" stroke="#4A7C59" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+    <ellipse cx="55" cy="118" rx="12" ry="7" fill="#4A7C59" transform="rotate(-30 55 118)"></ellipse>
+    <ellipse cx="40" cy="95" rx="11" ry="6" fill="#4A7C59" transform="rotate(-45 40 95)"></ellipse>
+    <ellipse cx="25" cy="72" rx="10" ry="6" fill="#4A7C59" transform="rotate(-55 25 72)"></ellipse>
+    <ellipse cx="65" cy="140" rx="10" ry="6" fill="#4A7C59" transform="rotate(-20 65 140)"></ellipse>
+    <ellipse cx="72" cy="162" rx="9" ry="5" fill="#4A7C59" transform="rotate(-10 72 162)"></ellipse>
+  </svg>
+
+  <div class="env-container">
+    <!-- Section header -->
+    <div class="env-header">
+      <span class="env-label">הסביבה שלנו</span>
+      <h2 class="env-title">מרחב חם, בטוח ומלא אהבה</h2>
+      <p class="env-subtitle">פנסיון הבוטיק שלנו תוכנן מהיסוד כדי שכל כלב קטן ירגיש בבית — חומרים רכים, ירוק טבעי, ואווירה שקטה שמזמינה רוגע ושמחה.</p>
+    </div>
+
+    <!-- 2-over-1 image composition -->
+    <div class="env-gallery">
+      <!-- Top row: two smaller images -->
+      <div class="env-gallery-top">
+        <figure class="env-img-wrap env-img-top-right">
+          <img loading="lazy" decoding="async" data-placeholder="about-environment-image-1" data-context="Cozy boutique dog boarding room with soft warm earth-toned blankets, a plush dog bed, natural woven textures, and gentle sunlight streaming through a window. A small fluffy Pomeranian or Shih Tzu is resting contentedly on the bed. The space feels like a boutique hotel room for a beloved small dog — warm, clean, inviting, and nurturing." width="560" height="380" src="/assets/site-about-environment-image-1.webp" alt="חדר פנסיון בוטיק חמים עם כלב קטן נח על מיטה רכה">
+          <div class="env-img-accent"></div>
+        </figure>
+        <figure class="env-img-wrap env-img-top-left">
+          <img loading="lazy" decoding="async" data-placeholder="about-environment-image-2" data-context="Positive reinforcement dog training moment outdoors in a lush green garden. A trainer kneeling at eye level with a small Corgi puppy, offering a treat reward with a warm smile. The setting is sunlit with soft greenery in the background, evoking safety and gentle encouragement. Warm earthy tones and natural light." width="560" height="380" src="/assets/site-about-environment-image-2.webp" alt="רגע אילוף בחיזוקים חיוביים עם גור קורגי בגינה ירוקה">
+        </figure>
+      </div>
+
+      <!-- Bottom row: one wide image -->
+      <figure class="env-img-wrap env-img-bottom">
+        <img loading="lazy" decoding="async" data-placeholder="about-environment-image-3" data-context="Wide panoramic view of a boutique dog boarding facility common area. Multiple small dogs (Pomeranian, Shih Tzu, Corgi) playing gently on soft grass or a natural-material play area. The space has earthy tones, wooden accents, potted plants, and warm afternoon light. The atmosphere is calm, clean, and joyful — more like a boutique garden retreat than a typical kennel." width="1120" height="460" src="/assets/site-about-environment-image-3.webp" alt="אזור המשחק של הפנסיון עם כלבים קטנים בסביבה ירוקה וחמה">
+        <div class="env-bottom-overlay">
+          <div class="env-bottom-tag">
+            <svg data-element-type="icon" data-icon-type="svg" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"></path>
+            </svg>
+            <span>דוגטאון פנסיון בוטיק</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+
+    <!-- Feature highlights -->
+    <div class="env-features">
+      <div class="env-feature-item">
+        <div class="env-feature-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 8C8 10 5.9 16.17 3.82 19.12L5.71 21l1-1.5c.5.5 1 1 1.5 1.5C10 22 10.5 21 11 20c1 1 2 2 3 2 4 0 8-5 8-9 0-1.5-.5-3-1.5-4C20 9 18.5 8 17 8z" fill="currentColor"></path>
+            <path d="M9.5 11.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <div class="env-feature-text">
+          <h3>סביבה טבעית ומרגיעה</h3>
+          <p>ירוק, אוויר צח ומרחב פתוח — כי כלבים קטנים זקוקים לסביבה שמרגישה חיה ובטוחה.</p>
+        </div>
+      </div>
+      <div class="env-feature-item">
+        <div class="env-feature-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <div class="env-feature-text">
+          <h3>חומרים רכים ואיכותיים</h3>
+          <p>מצעים נעימים, מיטות פינוק ומשטחי משחק בטוחים — כל פרט נבחר עם אהבה לגורים ולכלבים קטנים.</p>
+        </div>
+      </div>
+      <div class="env-feature-item">
+        <div class="env-feature-icon">
+          <svg data-element-type="icon" data-icon-type="svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <div class="env-feature-text">
+          <h3>אילוף בחיזוקים חיוביים</h3>
+          <p>שיטת התגמול שלנו מבוססת על עידוד ואהבה — ללא עונשים, רק התקדמות שמחה ומתגמלת.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom wave divider transitioning to breed-fit section -->
+  <div class="env-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 L0,45 Q100,20 200,40 Q300,60 400,35 Q500,10 600,38 Q700,65 800,40 Q900,15 1000,42 Q1100,68 1200,45 L1200,90 Z" fill="#3A6048"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="about-audience-fit-section" data-layout-spec="אודות-audience-fit" dir="rtl">
+  <!-- Decorative olive branch motif -->
+  <svg class="aaf-deco-branch" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M80,10 Q90,40 75,70 Q60,100 80,130 Q95,155 78,190" stroke="#9EB6B0" stroke-width="1.5" fill="none" opacity="0.35"></path>
+    <ellipse cx="68" cy="45" rx="10" ry="6" fill="#9EB6B0" opacity="0.28" transform="rotate(-30 68 45)"></ellipse>
+    <ellipse cx="82" cy="62" rx="10" ry="6" fill="#9EB6B0" opacity="0.28" transform="rotate(20 82 62)"></ellipse>
+    <ellipse cx="70" cy="80" rx="10" ry="6" fill="#9EB6B0" opacity="0.28" transform="rotate(-25 70 80)"></ellipse>
+    <ellipse cx="84" cy="98" rx="10" ry="6" fill="#9EB6B0" opacity="0.28" transform="rotate(15 84 98)"></ellipse>
+    <ellipse cx="72" cy="116" rx="10" ry="6" fill="#9EB6B0" opacity="0.28" transform="rotate(-20 72 116)"></ellipse>
+    <ellipse cx="83" cy="134" rx="9" ry="5" fill="#9EB6B0" opacity="0.22" transform="rotate(25 83 134)"></ellipse>
+    <ellipse cx="74" cy="152" rx="9" ry="5" fill="#9EB6B0" opacity="0.20" transform="rotate(-15 74 152)"></ellipse>
+  </svg>
+
+  <div class="aaf-container">
+    <!-- Header block -->
+    <div class="aaf-header">
+      <span class="aaf-label">למי מיועד השירות?</span>
+      <h2 class="aaf-title">הפנסיון שלנו נולד בשביל הכלבים שלכם</h2>
+      <p class="aaf-intro">דוגטאון פנסיון בוטיק נבנה מהיסוד עבור בעלי כלבים קטנים ואהובים — מקום שבו גור קטן מקבל את כל תשומת הלב, הביטחון, והאהבה שמגיעים לו. אנחנו עובדים עם כמעט כל הגזעים, ומתמחים במיוחד בכלבים קטנים ובגורים בתחילת דרכם.</p>
+    </div>
+
+    <!-- 3-card row -->
+    <div class="aaf-cards">
+
+      <article class="aaf-card">
+        <div class="aaf-card-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.3"></circle>
+            <path d="M16 30 Q20 22 24 26 Q28 22 32 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"></path>
+            <circle cx="19" cy="20" r="2.5" fill="currentColor" opacity="0.7"></circle>
+            <circle cx="29" cy="20" r="2.5" fill="currentColor" opacity="0.7"></circle>
+            <path d="M20 16 Q24 12 28 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"></path>
+          </svg>
+        </div>
+        <div class="aaf-card-content">
+          <h3 class="aaf-card-title">גורים בתחילת הדרך</h3>
+          <p class="aaf-card-text">הגיל הראשון הוא הקריטי ביותר. אנחנו מלווים גורים עם סשן אילוף פרטי לגור — בסביבה רגועה ובטוחה — ומניחים את הבסיס לחיים מאוזנים ושמחים.</p>
+          <ul class="aaf-card-list">
+            <li>סוציאליזציה נכונה מגיל צעיר</li>
+            <li>חיזוקים חיוביים בלבד</li>
+            <li>קצב המתאים לגור שלכם</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="aaf-card aaf-card--featured">
+        <div class="aaf-card-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.3"></circle>
+            <path d="M14 28 C14 22 18 17 24 17 C30 17 34 22 34 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"></path>
+            <path d="M20 28 L20 32 M28 28 L28 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <circle cx="20" cy="19" r="2" fill="currentColor" opacity="0.6"></circle>
+            <circle cx="28" cy="19" r="2" fill="currentColor" opacity="0.6"></circle>
+            <path d="M22 33 L26 33" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"></path>
+          </svg>
+        </div>
+        <div class="aaf-card-content">
+          <h3 class="aaf-card-title">גזעי מחמד קטנים ועדינים</h3>
+          <p class="aaf-card-text">פומרניין, קורגי, שיצו — כלבים קטנים עם אישיות גדולה. הפנסיון שלנו מותאם לגודלם, לאנרגיה שלהם ולצרכים הייחודיים שלהם, עם סביבה שקטה ומטפחת.</p>
+          <ul class="aaf-card-list">
+            <li>מרחב מותאם לגזעים קטנים</li>
+            <li>אילוף כלבים קטנים בגישה עדינה</li>
+            <li>שגרה יומית קבועה ומרגיעה</li>
+          </ul>
+        </div>
+        <span class="aaf-card-badge">הכי מבוקש</span>
+      </article>
+
+      <article class="aaf-card">
+        <div class="aaf-card-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.3"></circle>
+            <path d="M24 14 L24 34 M14 24 L34 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"></path>
+            <circle cx="24" cy="24" r="7" stroke="currentColor" stroke-width="2"></circle>
+            <path d="M18 18 L14 14 M30 18 L34 14 M18 30 L14 34 M30 30 L34 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"></path>
+          </svg>
+        </div>
+        <div class="aaf-card-content">
+          <h3 class="aaf-card-title">בעלים עירוניים עסוקים</h3>
+          <p class="aaf-card-text">אתם אוהבים את הכלב שלכם אבל החיים עמוסים. אנחנו כאן שבעה ימים בשבוע — בין אם לפנסיון אילוף בוטיק, שהות רגילה, או סשן אימון בבית הלקוח שמגיע אליכם.</p>
+          <ul class="aaf-card-list">
+            <li>פתוח 7 ימים בשבוע</li>
+            <li>אימון גם בבית הלקוח</li>
+            <li>עדכונים שוטפים לבעלים</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Reassurance note -->
+    <p class="aaf-note">
+      <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-inline-start:6px;">
+        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4" opacity="0.6"></circle>
+        <path d="M6.5 10.5 L9 13 L13.5 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      אנחנו עובדים עם כמעט כל הגזעים — למעט כלבים המוגדרים מסוכנים על פי המאגר הממשלתי.
+    </p>
+  </div>
+
+  <!-- Bottom gradient fade divider -->
+  <div class="aaf-divider-wrapper" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="aaf-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3A6048" stop-opacity="0"></stop>
+          <stop offset="100%" stop-color="#EDE4D6" stop-opacity="1"></stop>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="60" fill="url(#aaf-fade)"></rect>
+    </svg>
+  </div>
+
+</section>
+
+<section class="about-contact-teaser-section" data-layout-spec="אודות-contact-teaser" dir="rtl">
+  <!-- Decorative leaf sprig -->
+  <svg class="about-ct-leaf-sprig" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60,170 Q55,140 50,120 Q44,98 30,85 Q18,74 10,60" stroke="#4A7C59" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+    <ellipse cx="38" cy="100" rx="12" ry="7" transform="rotate(-30 38 100)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="22" cy="78" rx="11" ry="6" transform="rotate(-50 22 78)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="48" cy="118" rx="10" ry="6" transform="rotate(-15 48 118)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="32" cy="60" rx="9" ry="5" transform="rotate(-65 32 60)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+  </svg>
+
+  <!-- Decorative olive branch -->
+  <svg class="about-ct-olive-branch" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,100 Q40,80 70,60 Q100,40 140,20" stroke="#4A7C59" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+    <ellipse cx="45" cy="75" rx="13" ry="6" transform="rotate(-35 45 75)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="75" cy="55" rx="13" ry="6" transform="rotate(-35 75 55)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="105" cy="37" rx="12" ry="5" transform="rotate(-35 105 37)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="130" cy="24" rx="10" ry="5" transform="rotate(-35 130 24)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="30" cy="88" rx="10" ry="5" transform="rotate(-60 30 88)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="60" cy="68" rx="11" ry="5" transform="rotate(-60 60 68)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+    <ellipse cx="90" cy="48" rx="10" ry="5" transform="rotate(-60 90 48)" fill="none" stroke="#4A7C59" stroke-width="1.2"></ellipse>
+  </svg>
+
+  <div class="about-ct-container">
+    <!-- Thin decorative line -->
+    <div class="about-ct-divider-line" aria-hidden="true"></div>
+
+    <div class="about-ct-content">
+      <span class="about-ct-eyebrow">נשמח לשמוע עליך ועל הכלב שלך</span>
+      <h2 class="about-ct-heading">מוכנים להתחיל את המסע יחד?</h2>
+      <p class="about-ct-body">כל כלב הוא עולם ומלואו — הגיל, האופי, והצרכים שלו מעצבים את הדרך הנכונה עבורו. צרו קשר ונשמח לשמוע על הגור או הכלב הקטן שלכם, ולהתאים יחד את מסלול הטיפול והאילוף המושלם בשיטת חיזוקים חיוביים.</p>
+      <a href="/contact" class="about-ct-btn">דברו איתנו</a>
+    </div>
+
+    <!-- Thin decorative line -->
+    <div class="about-ct-divider-line" aria-hidden="true"></div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer" dir="rtl">
+  <div class="footer-main">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Company Info -->
+        <div class="footer-col footer-col--brand">
+          <div class="footer-logo-wrap">
+            <img src="/assets/logo.webp" alt="דוגטאון פנסיון בוטיק" class="logo">
+          </div>
+          <p class="footer-tagline">מקום חם ובטוח לכלב שלך — טיפול בוטיק עם לב גדול, שגרה מאוזנת ואהבה אמיתית.</p>
+          <div class="footer-social">
+            
+            
+            
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h3 class="footer-heading">ניווט מהיר</h3>
+          <ul class="footer-nav">
+            <li><a href="/">בית</a></li>
+            <li><a href="/services">שירותים</a></li>
+            <li><a href="/about">אודות</a></li>
+            <li><a href="/contact">צור קשר</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact -->
+        <div class="footer-col">
+          <h3 class="footer-heading">יצירת קשר</h3>
+          <ul class="footer-contact">
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <span class="contact-text"><a href="mailto:[business_email]">[business_email]</a></span>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone"></i></span>
+              <span class="contact-text"><a href="tel:[business_phone]">[business_phone]</a></span>
+            </li>
+            <li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <span class="contact-text">[business_address]</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Hours / Extra -->
+        <div class="footer-col">
+          <h3 class="footer-heading">שעות פעילות</h3>
+          <ul class="footer-hours">
+            <li><a href="/"><span class="hours-day">ראשון – חמישי</span><span class="hours-time">07:00 – 20:00</span></a></li>
+            <li><a href="/"><span class="hours-day">שישי</span><span class="hours-time">07:00 – 14:00</span></a></li>
+            <li><a href="/"><span class="hours-day">שבת</span><span class="hours-time">סגור</span></a></li>
+          </ul>
+          <div class="footer-badge">
+            <i class="fas fa-paw"></i>
+            <span>פנסיון בוטיק לכלבים קטנים</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-container footer-bottom-inner">
+      <p class="footer-copy">© 2026 דוגטאון פנסיון בוטיק. כל הזכויות שמורות.</p>
+      <div class="footer-legal">
+        <a href="/privacy">מדיניות פרטיות</a>
+        <span class="legal-sep" aria-hidden="true">·</span>
+        <a href="/terms">תנאי שימוש</a>
+        <span class="legal-sep" aria-hidden="true">·</span>
+        <a href="/accessibility">נגישות</a>
+        <span class="legal-sep" aria-hidden="true">·</span>
+        <a href="https://zappy5.com" target="_blank" class="zappy-attribution">נוצר באמצעות Zappy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+</body>
+</html>

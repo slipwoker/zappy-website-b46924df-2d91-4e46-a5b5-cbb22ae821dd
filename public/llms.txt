@@ -1,0 +1,85 @@
+# דוגטאון פנסיון בוטיק — Generative Engine Optimization Map
+
+> A boutique dog training and boarding business focused on positive reinforcement and reward-based methods, working with all breeds except those classified as dangerous by the government registry. The brand targets owners of small and toy breeds like Pomeranian, Corgi, and Shih Tzu, offering hourly training sessions (at the facility or client's home), training boarding packages, and regular boarding — all 7 days a week. The desired branding features warm earthy tones and green hues, evoking a natural, nurturing, and safe environment for beloved small dogs.
+
+---
+
+## Pages
+
+### בית
+https://example.com
+דוגטאון פנסיון בוטיק הוא הבית החם לכלבים קטנים שלכם — אילוף בחיזוקים חיוביים, פנסיון בוטיק מפנק וסביבה בטוחה ואוהבת. גלו עולם שלם של טיפול מקצועי!
+
+### שירותים
+https://example.com/services
+סשן אילוף פרטי לגור בבית או אצלנו, חבילות פנסיון אילוף ופנסיון שוטף — שבעה ימים בשבוע. גלו איך אילוף בחיזוקים חיוביים הופך כל כלב קטן למאושר ומאומן!
+
+### אודות
+https://example.com/about
+אנחנו מאמינים שכל כלב קטן — פומרניאן, קורגי או שיצו — ראוי לטיפול חם ומקצועי. גלו את הפילוסופיה שלנו, את שיטת החיזוקים החיוביים ואת הצוות שיאהב את הכלב שלכם כמוכם.
+
+### צור קשר
+https://example.com/contact
+רוצים לקבוע סשן אילוף פרטי לגור או לשמוע על חבילות הפנסיון שלנו? צרו קשר עוד היום — אנחנו זמינים שבעה ימים בשבוע ושמחים לענות על כל שאלה עבור הכלב הקטן שלכם.
+
+## Legal & Policy
+
+### Privacy Policy
+https://example.com/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://example.com/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://example.com/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## How to Contact Us
+
+- (No contact details configured yet.)
+
+### Contact form
+- URL: https://example.com/contact
+- Endpoint: https://example.com/api/email/contact-form
+- Method: POST
+- Content-Type: application/json
+- Fields:
+  - `name` (text, required)
+  - `email` (email, required)
+  - `phone` (tel, required)
+  - `message` (textarea, required)
+  - `privacy_consent` (checkbox, required)
+
+---
+
+# Business Context (for LLM understanding)
+
+## About דוגטאון פנסיון בוטיק
+A boutique dog training and boarding business focused on positive reinforcement and reward-based methods, working with all breeds except those classified as dangerous by the government registry. The brand targets owners of small and toy breeds like Pomeranian, Corgi, and Shih Tzu, offering hourly training sessions (at the facility or client's home), training boarding packages, and regular boarding — all 7 days a week. The desired branding features warm earthy tones and green hues, evoking a natural, nurturing, and safe environment for beloved small dogs.
+
+## Services/Products
+- סשנים שעתיים של אילוף – בפנסיון ובבית הלקוח
+- פנסיון אילוף לפי ימים
+- פנסיון רגיל לפי ימים
+- גישת חיזוקים חיוביים ותגמול
+
+## Target Audience
+- בעלי גורים וכלבים קטנים כמו פומרניין, קורגי ושיצו
+- בעלי גורים
+- בעלי כלבים קטנים
+- בעלי כלבים בעיר
+
+## Industry
+טיפול ואימון בעלי חיים
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://example.com/sitemap.xml
+- Robots: https://example.com/robots.txt
+- Flattened page text (for LLMs): https://example.com/llms-full.txt
