@@ -9134,6 +9134,422 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
   .hero h1, .hero-section h1, [class*="hero-"] h1, [class~="hero"] h1, .hero .hero-title, .hero-title { font-size: clamp(2rem, 9vw, 3rem) !important; }
 }
 
+
+/* AI-generated section */
+/* ============================================
+   DogTown Training Process Section
+   ============================================ */
+
+.dt-training-process {
+  background: linear-gradient(160deg, #f9f5ef 0%, #f0ebe0 60%, #e8e0d0 100%);
+  padding: 90px 20px 80px;
+  font-family: system-ui, sans-serif;
+  direction: rtl;
+  text-align: right;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background texture */
+.dt-training-process::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(122,134,104,0.10) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dt-training-process::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(193,127,74,0.10) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Container */
+.dt-process-container {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Header ---- */
+.dt-process-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.dt-process-title {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 800;
+  color: #3a2e22;
+  margin: 0 0 14px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.dt-process-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary, linear-gradient(135deg, #7B5C3E 0%, #C17F4A 100%));
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+.dt-process-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: #6b5a45;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ---- Steps Wrapper (horizontal row) ---- */
+.dt-steps-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+/* ---- Step Card ---- */
+.dt-step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 200px;
+  position: relative;
+}
+
+/* Number column */
+.dt-step-number-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dt-step-number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient-primary, linear-gradient(135deg, #7B5C3E 0%, #C17F4A 100%));
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(123,92,62,0.30);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.dt-step-card:hover .dt-step-number {
+  transform: scale(1.10);
+  box-shadow: 0 8px 28px rgba(123,92,62,0.40);
+}
+
+/* Vertical line below number (hidden on last card) */
+.dt-step-line {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(193,127,74,0.45), rgba(193,127,74,0.10));
+  border-radius: 1px;
+  margin: 0 auto;
+}
+
+/* Content column */
+.dt-step-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 8px;
+}
+
+/* Icon wrap */
+.dt-step-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1.5px solid rgba(122,134,104,0.25);
+  box-shadow: 0 3px 14px rgba(122,134,104,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.dt-step-card:hover .dt-step-icon-wrap {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(122,134,104,0.20);
+  border-color: rgba(193,127,74,0.45);
+}
+
+.dt-step-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--primary, #7A8668);
+  display: block;
+}
+
+/* Step text */
+.dt-step-text {
+  text-align: center;
+}
+
+.dt-step-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3a2e22;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.dt-step-desc {
+  font-size: 0.85rem;
+  color: #6b5a45;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ---- Connector Arrows ---- */
+.dt-step-connector {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18px;
+  flex-shrink: 0;
+  width: 44px;
+  color: rgba(193,127,74,0.55);
+}
+
+.dt-connector-arrow {
+  width: 36px;
+  height: 22px;
+  display: block;
+  flex-shrink: 0;
+  /* flip arrow for RTL: arrows point left (toward next step in RTL) */
+  transform: scaleX(-1);
+}
+
+/* ---- CTA ---- */
+.dt-process-cta {
+  text-align: center;
+  margin-top: 56px;
+}
+
+.dt-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gradient-primary, linear-gradient(135deg, #7B5C3E 0%, #C17F4A 100%));
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 50px;
+  box-shadow: 0 6px 22px rgba(123,92,62,0.32);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  letter-spacing: 0.3px;
+}
+
+.dt-cta-btn:hover,
+.dt-cta-btn:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(123,92,62,0.42);
+  filter: brightness(1.06);
+  outline: none;
+}
+
+.dt-cta-btn:focus-visible {
+  outline: 3px solid #C17F4A;
+  outline-offset: 3px;
+}
+
+.dt-cta-arrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  /* flip for RTL */
+  transform: scaleX(-1);
+  transition: transform 0.22s ease;
+}
+
+.dt-cta-btn:hover .dt-cta-arrow {
+  transform: scaleX(-1) translateX(-4px);
+}
+
+/* ============================================
+   RESPONSIVE — Tablet (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .dt-training-process {
+    padding: 70px 16px 60px;
+  }
+
+  .dt-process-header {
+    margin-bottom: 48px;
+  }
+
+  .dt-steps-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .dt-step-card {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 480px;
+    width: 100%;
+    gap: 0;
+  }
+
+  .dt-step-number-col {
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .dt-step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .dt-step-line {
+    width: 2px;
+    height: 100%;
+    min-height: 30px;
+    flex: 1;
+  }
+
+  .dt-step-content-col {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0 0 0 16px;
+    text-align: right;
+    flex: 1;
+  }
+
+  .dt-step-icon-wrap {
+    margin: 0;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+  }
+
+  .dt-step-text {
+    text-align: right;
+    flex: 1;
+  }
+
+  .dt-step-title {
+    font-size: 1rem;
+  }
+
+  .dt-step-desc {
+    font-size: 0.88rem;
+  }
+
+  /* Vertical connector arrows */
+  .dt-step-connector {
+    width: auto;
+    padding: 0;
+    align-self: flex-start;
+    margin-right: 24px;
+    height: 36px;
+    align-items: center;
+    color: rgba(193,127,74,0.50);
+  }
+
+  .dt-connector-arrow {
+    width: 22px;
+    height: 36px;
+    transform: rotate(90deg) scaleX(-1);
+  }
+
+  .dt-process-cta {
+    margin-top: 44px;
+  }
+
+  .dt-cta-btn {
+    font-size: 0.98rem;
+    padding: 14px 28px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Mobile (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .dt-training-process {
+    padding: 56px 14px 50px;
+  }
+
+  .dt-process-title {
+    font-size: 1.65rem;
+  }
+
+  .dt-process-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .dt-step-card {
+    max-width: 100%;
+  }
+
+  .dt-step-content-col {
+    padding: 0 0 0 12px;
+  }
+
+  .dt-step-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .dt-step-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .dt-cta-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 15px 20px;
+  }
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
