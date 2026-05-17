@@ -252,6 +252,358 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
     <!-- Mickidum Accessibility Toolbar -->
     <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+
+<style data-zappy-section-v2-css="true">
+/* V2 Regenerated Section CSS */
+.index-hero-section {
+  position: relative;
+  background-color: var(--bg-light);
+  background-image: linear-gradient(180deg, #F5EFE6 0%, #EDE4D6 100%);
+  color: var(--text-dark);
+  padding: 140px 24px 80px;
+  overflow: visible;
+  direction: rtl;
+}
+
+/* Decorative branch */
+.index-hero-section .index-hero-decor-branch {
+  position: absolute;
+  top: 80px;
+  inset-inline-start: 40px;
+  width: 120px;
+  height: 160px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+/* Container */
+.index-hero-section .index-hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  direction: rtl;
+}
+
+/* ── TEXT COLUMN ── */
+.index-hero-section .index-hero-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  text-align: right;
+}
+
+/* Eyebrow */
+.index-hero-section .index-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4A7C59;
+  background: rgba(74, 124, 89, 0.08);
+  border: 1px solid rgba(74, 124, 89, 0.2);
+  border-radius: 100px;
+  padding: 6px 14px;
+}
+
+/* H1 */
+.index-hero-section .index-hero-h1 {
+  font-family: 'Manrope', 'Assistant', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.index-hero-section .index-hero-em {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 3.4rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4A7C59, #7B5C3E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* H3 subtitle */
+.index-hero-section .index-hero-h3 {
+  font-family: 'Assistant', 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Badges row */
+.index-hero-section .index-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  direction: rtl;
+}
+
+.index-hero-section .index-hero-badge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  box-shadow: 0 2px 8px rgba(90, 60, 30, 0.06);
+}
+
+/* CTA row */
+.index-hero-section .index-hero-ctas {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  direction: rtl;
+}
+
+.index-hero-section .index-hero-btn-primary {
+  display: inline-block;
+  background: #7B5C3E;
+  color: #F5EFE6;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-family: 'Assistant', 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(90, 60, 30, 0.18);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.index-hero-section .index-hero-btn-primary:hover {
+  background: #5E4530;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(90, 60, 30, 0.24);
+}
+
+.index-hero-section .index-hero-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #7B5C3E;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: 2px solid #7B5C3E;
+  font-family: 'Assistant', 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.index-hero-section .index-hero-btn-secondary:hover {
+  background: rgba(123, 92, 62, 0.08);
+  transform: translateY(-3px);
+}
+
+/* ── IMAGE COLUMN ── */
+.index-hero-section .index-hero-image-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-hero-section .index-hero-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+/* Before pseudo — warm sand border accent */
+.index-hero-section .index-hero-image-frame::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #E8D5B7 0%, #C9A96E 50%, #E8D5B7 100%);
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.index-hero-section .index-hero-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 24px 64px rgba(90, 60, 30, 0.18);
+}
+
+/* Floating card */
+.index-hero-section .index-hero-float-card {
+  position: absolute;
+  bottom: -20px;
+  inset-inline-end: -20px;
+  z-index: 10;
+  background: rgba(245, 239, 230, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 12px 32px rgba(90, 60, 30, 0.14);
+  min-width: 110px;
+}
+
+.index-hero-section .index-hero-float-num {
+  font-family: 'Manrope', 'Assistant', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4A7C59;
+  line-height: 1;
+}
+
+.index-hero-section .index-hero-float-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Decorative leaf on image */
+.index-hero-section .index-hero-img-leaf {
+  position: absolute;
+  top: -24px;
+  inset-inline-start: -24px;
+  width: 80px;
+  height: 80px;
+  z-index: 12;
+  pointer-events: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .index-hero-section .index-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .index-hero-section .index-hero-image-col {
+    order: -1;
+  }
+
+  .index-hero-section .index-hero-img {
+    height: 340px;
+  }
+
+  .index-hero-section .index-hero-h1 {
+    font-size: 2.2rem;
+  }
+
+  .index-hero-section .index-hero-em {
+    font-size: 2.5rem;
+  }
+
+  .index-hero-section .index-hero-float-card {
+    inset-inline-end: 0;
+    bottom: -16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-hero-section {
+    padding: 100px 16px 60px;
+  }
+
+  .index-hero-section .index-hero-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0;
+  }
+
+  .index-hero-section .index-hero-h1 {
+    font-size: 2rem;
+  }
+
+  .index-hero-section .index-hero-em {
+    font-size: 2.2rem;
+  }
+
+  .index-hero-section .index-hero-h3 {
+    font-size: 1rem;
+  }
+
+  .index-hero-section .index-hero-img {
+    height: 280px;
+  }
+
+  .index-hero-section .index-hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .index-hero-section .index-hero-btn-primary,
+  .index-hero-section .index-hero-btn-secondary {
+    text-align: center;
+    width: 100%;
+    padding: 13px 20px;
+  }
+
+  .index-hero-section .index-hero-float-card {
+    position: static;
+    margin-top: 12px;
+    align-self: flex-end;
+    flex-direction: row;
+    gap: 8px;
+    min-width: unset;
+    padding: 10px 16px;
+  }
+
+  .index-hero-section .index-hero-decor-branch {
+    display: none;
+  }
+
+  .index-hero-section .index-hero-img-leaf {
+    width: 50px;
+    height: 50px;
+    top: -12px;
+    inset-inline-start: -12px;
+  }
+}
+/* ZAPPY_POSTGEN_GUARD_HERO_FONT_CAP:index-hero */
+.hero h1, .hero-section h1, [class*="hero-"] h1, [class~="hero"] h1, .hero .hero-title, .hero-title { font-size: min(var(--display-xl, 6rem), 6rem) !important; line-height: var(--leading-display, 1.05); }
+@media (max-width: 768px) {
+  .hero h1, .hero-section h1, [class*="hero-"] h1, [class~="hero"] h1, .hero .hero-title, .hero-title { font-size: clamp(2rem, 9vw, 3rem) !important; }
+}
+
+</style>
     <link rel="stylesheet" href="/styles.css">
 
     <style id="zappy-dropdown-submenu-styles">
@@ -812,72 +1164,69 @@
 </script>
   
   <main id="main">
-    <section data-band-index="0" class="index-hero-section" data-layout-spec="בית-hero" dir="rtl" data-hero-type="fullscreen-scrim" data-zappy-content-align="top-center" id="zappy-section-1778600412022-z5xds6">
-  <!-- Background Image -->
-  <div class="index-hero-bg">
-    <div data-zappy-zoom-wrapper="true" data-element-id="img-1778600412150-nckn8at3f" data-element-type="image" data-zappy-zoom-wrapper-width-mode="full" style="position: absolute !important; top: 0px !important; left: 0px !important; width: 100% !important; height: 100% !important; max-width: none !important; margin-left: 0px !important; margin-right: 0px !important; display: block !important; z-index: 1 !important; overflow: hidden !important;" data-zappy-zoom-clip="true" data-zappy-wrapper-margins-applied="true"><img loading="eager" fetchpriority="high" data-hero-bg="true" data-placeholder="index-hero-image-1" data-context="Warm sunlit boutique dog boarding setting, a small fluffy Pomeranian or Shih Tzu puppy resting contentedly on a soft cream wool blanket, natural wood textures, warm dappled sunlight, shallow depth of field, earthy tones, cozy and nurturing atmosphere, professional pet photography" width="1200" height="700" src="/assets/site-index-hero-image-1.webp" alt="גור קטן ומאושר בפנסיון הבוטיק שלנו" data-hero-background="true" data-element-type="image" data-element-id="img-1778600412150-nckn8at3f" style="object-position: 50% 30% !important; margin: 0px !important; position: absolute !important; left: 0% !important; top: 0% !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; display: block !important; object-fit: cover !important;" data-zappy-zoom="1" data-zappy-object-position="50% 30%"></div>
-  </div>
-
-  <!-- Scrim Overlay -->
-  <div class="index-hero-scrim" aria-hidden="true"></div>
-
+    <section class="index-hero-section" data-layout-spec="בית-hero" dir="rtl" data-hero-type="side-by-side" data-zappy-section="true" id="zappy-section-1778600412022-z5xds6">
   <!-- Decorative olive branch SVG -->
-  <svg class="index-hero-decor-branch" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M80 190 C75 160 60 140 50 110 C40 80 55 55 70 40 C85 25 100 20 110 30" stroke="#4A7C59" stroke-width="1.5" fill="none" opacity="0.5"></path>
-    <ellipse cx="55" cy="115" rx="10" ry="6" fill="#4A7C59" opacity="0.35" transform="rotate(-30 55 115)"></ellipse>
-    <ellipse cx="62" cy="95" rx="9" ry="5" fill="#4A7C59" opacity="0.30" transform="rotate(-20 62 95)"></ellipse>
-    <ellipse cx="72" cy="75" rx="10" ry="6" fill="#4A7C59" opacity="0.35" transform="rotate(-10 72 75)"></ellipse>
-    <ellipse cx="82" cy="58" rx="9" ry="5" fill="#4A7C59" opacity="0.28" transform="rotate(5 82 58)"></ellipse>
-    <ellipse cx="94" cy="44" rx="8" ry="5" fill="#4A7C59" opacity="0.25" transform="rotate(15 94 44)"></ellipse>
-    <ellipse cx="45" cy="130" rx="8" ry="5" fill="#4A7C59" opacity="0.28" transform="rotate(-40 45 130)"></ellipse>
+  <svg class="index-hero-decor-branch" aria-hidden="true" data-no-icon-edit="true" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M80,10 Q90,40 70,70 Q60,90 80,120 Q95,145 75,175" stroke="#4A7C59" stroke-width="2" fill="none" opacity="0.28"></path>
+    <ellipse cx="65" cy="50" rx="10" ry="6" fill="#4A7C59" opacity="0.22" transform="rotate(-30 65 50)"></ellipse>
+    <ellipse cx="75" cy="75" rx="10" ry="6" fill="#4A7C59" opacity="0.22" transform="rotate(20 75 75)"></ellipse>
+    <ellipse cx="62" cy="100" rx="10" ry="6" fill="#4A7C59" opacity="0.22" transform="rotate(-15 62 100)"></ellipse>
+    <ellipse cx="82" cy="128" rx="10" ry="6" fill="#4A7C59" opacity="0.22" transform="rotate(25 82 128)"></ellipse>
+    <ellipse cx="68" cy="155" rx="9" ry="5" fill="#4A7C59" opacity="0.22" transform="rotate(-10 68 155)"></ellipse>
   </svg>
 
-  <!-- Hero Content -->
-  <div class="index-hero-container" data-zappy-align-target="true" >
-    <div class="index-hero-card">
-      <!-- Label badge -->
-      <p><span class="index-hero-badge">פנסיון בוטיק לכלבים קטנים</span>
+  <div class="index-hero-container">
+    <!-- Text Column (Right) -->
+    <div class="index-hero-text-col">
+      <span class="index-hero-eyebrow">
+        <svg data-element-type="icon" data-icon-type="svg" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="5" fill="#4A7C59" opacity="0.7"></circle></svg>
+        פנסיון בוטיק לכלבים קטנים
+      </span>
 
-      
-      </p><!-- H1 --><h1 class="index-hero-h1" style="max-width: 1400px; margin-left: auto; margin-right: auto;" data-zappy-text-width="custom"></h1><h1>
-        הבית השני של
-        <em class="index-hero-em">הכלב שלך</em></h1>
+      <h1 class="index-hero-h1">הבית השני של<br><em class="index-hero-em">הכלב שלך</em></h1>
 
-      <!-- Subtitle H3 -->
-      <h3 class="index-hero-subtitle">
-        אילוף מבוסס חיזוקים חיוביים, פנסיון חם ואוהב — שבעה ימים בשבוע, לגורים ולכלבים קטנים.
-      </h3>
+      <h3 class="index-hero-h3">אילוף מבוסס חיזוקים חיוביים, פנסיון חם ואוהב — שבעה ימים בשבוע, לגורים ולכלבים קטנים.</h3>
 
-      <!-- CTA Buttons -->
-      <div class="index-hero-ctas">
-        <a href="/contact" class="index-hero-btn-primary" data-element-type="button" data-element-id="btn-1778600412147-gx3ys3pwq" data-native-element="true" style="outline: none;">צרו קשר עכשיו</a>
-        <a href="/services" class="index-hero-btn-secondary" data-element-type="button" data-element-id="btn-1778600412147-49jkbhm8a" data-native-element="true">השירותים שלנו</a>
+      <!-- Trust badges -->
+      <div class="index-hero-badges">
+        <div class="index-hero-badge">
+          <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2C10 2 4 5 4 10.5C4 13.5 6.5 16 10 16C13.5 16 16 13.5 16 10.5C16 5 10 2 10 2Z" stroke="#4A7C59" stroke-width="1.5" fill="none"></path><path d="M7 10.5L9 12.5L13 8.5" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span>חיזוקים חיוביים</span>
+        </div>
+        <div class="index-hero-badge">
+          <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="14" height="12" rx="3" stroke="#4A7C59" stroke-width="1.5" fill="none"></rect><path d="M7 4V3M13 4V3" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round"></path><path d="M3 8H17" stroke="#4A7C59" stroke-width="1.5"></path></svg>
+          <span>7 ימים בשבוע</span>
+        </div>
+        <div class="index-hero-badge">
+          <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L11.8 7.5H17L12.9 10.3L14.5 15L10 12.2L5.5 15L7.1 10.3L3 7.5H8.2L10 3Z" stroke="#4A7C59" stroke-width="1.5" fill="none" stroke-linejoin="round"></path></svg>
+          <span>טיפול בוטיק</span>
+        </div>
       </div>
 
-      <!-- Trust signals -->
-      <div class="index-hero-trust">
-        <span class="index-hero-trust-item">
-          <svg data-element-type="icon" data-icon-type="svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          חיזוקים חיוביים בלבד
-        </span>
-        <span class="index-hero-trust-item">
-          <svg data-element-type="icon" data-icon-type="svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          פתוח 7 ימים בשבוע
-        </span>
-        <span class="index-hero-trust-item">
-          <svg data-element-type="icon" data-icon-type="svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          אילוף בפנסיון ובבית הלקוח
-        </span>
+      <div class="index-hero-ctas">
+        <a href="/contact" class="index-hero-btn-primary">צרו קשר עכשיו</a>
+        <a href="/services" class="index-hero-btn-secondary">השירותים שלנו</a>
       </div>
     </div>
-  </div>
 
-  <!-- Bottom divider -->
-  <div class="index-hero-divider-wrapper">
-    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,90 L0,45 Q100,28 200,42 T400,35 Q500,28 600,40 T800,32 Q900,26 1000,38 T1200,30 L1200,90 Z" fill="#EDE4D6"></path>
-      <path d="M0,90 L0,58 Q150,48 300,55 T600,50 Q750,44 900,52 T1200,46 L1200,90 Z" fill="#EDE4D6" opacity="0.6"></path>
-    </svg>
+    <!-- Image Column (Left) -->
+    <div class="index-hero-image-col">
+      <div class="index-hero-image-frame">
+        <img alt="גור קטן ומאושר בפנסיון הבוטיק שלנו" class="index-hero-img" src="/assets/site-index-hero-image-1.webp" data-placeholder="index-hero-image-1" data-context="Warm sunlit boutique dog boarding setting, a small fluffy Pomeranian or Shih Tzu puppy resting contentedly on a soft cream wool blanket, natural wood textures, warm dappled sunlight, shallow depth of field, earthy tones, cozy and nurturing atmosphere, professional pet photography" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+        <!-- Floating accent card -->
+        <div class="index-hero-float-card">
+          <span class="index-hero-float-num">100%</span>
+          <span class="index-hero-float-label">אהבה וסבלנות</span>
+        </div>
+        <!-- Decorative corner leaf -->
+        <svg class="index-hero-img-leaf" aria-hidden="true" data-no-icon-edit="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10,70 Q30,20 70,10" stroke="#4A7C59" stroke-width="2" fill="none" opacity="0.35"></path>
+          <ellipse cx="25" cy="48" rx="8" ry="5" fill="#4A7C59" opacity="0.28" transform="rotate(-40 25 48)"></ellipse>
+          <ellipse cx="45" cy="32" rx="8" ry="5" fill="#4A7C59" opacity="0.28" transform="rotate(-50 45 32)"></ellipse>
+          <ellipse cx="62" cy="18" rx="7" ry="4" fill="#4A7C59" opacity="0.28" transform="rotate(-45 62 18)"></ellipse>
+        </svg>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1381,148 +1730,6 @@
           observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
         });
       }, 500);
-    })();
-    </script>
-
-    <script>
-    (function(){
-      var _applied=false;
-      function _isHeroBg(w){var img=w.querySelector('img');if(img&&(img.getAttribute('data-hero-bg')==='true'||img.getAttribute('data-hero-background')==='true'))return true;var p=(w.style.position||'').replace(/\s*!important\s*/g,'').trim();var ww=(w.style.width||'').replace(/\s*!important\s*/g,'').trim();var hh=(w.style.height||'').replace(/\s*!important\s*/g,'').trim();return p==='absolute'&&ww==='100%'&&hh==='100%';}
-      function fixDesktopWrappers(){
-        // No-op: desktop wrapper restoration is handled by ZAPPY_PUBLISHED_ZOOM_WRAPPER_RUNTIME
-        // in script.js (restoreWrapperDimensions). The old inflation logic here was expanding
-        // small wrappers (e.g. 139px logo wrappers) to their parent width, conflicting with
-        // the correct stored dimensions.
-      }
-      function _parsePos(s){var x=50,y=50;try{var m=(s||'').match(/(-?d+(?:.d+)?)%s+(-?d+(?:.d+)?)%/);if(m){x=parseFloat(m[1]);y=parseFloat(m[2]);}}catch(e){}if(!isFinite(x))x=50;if(!isFinite(y))y=50;return{x:Math.max(0,Math.min(100,x)),y:Math.max(0,Math.min(100,y))};}
-      function _coverPct(iA,cA){if(!isFinite(iA)||iA<=0||!isFinite(cA)||cA<=0)return{w:100,h:100};if(iA>=cA)return{w:(iA/cA)*100,h:100};return{w:100,h:(cA/iA)*100};}
-      function applyMobile(){
-        if(_applied)return;_applied=true;
-        document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){
-          if(_isHeroBg(w))return;
-          var cw=w.style.getPropertyValue('width');
-          var _sW=parseFloat(w.getAttribute('data-zappy-zoom-wrapper-width'))||0;
-          var _sH=parseFloat(w.getAttribute('data-zappy-zoom-wrapper-height'))||0;
-          if(!cw&&!(_sW>0&&_sH>0))return;
-          if(!w._zappyDesktop)w._zappyDesktop={wStyle:w.getAttribute('style')};
-          var img=w.querySelector('img');
-          if(!img)return;
-          if(!img._zappyDesktop)img._zappyDesktop={src:img.getAttribute('src'),style:img.getAttribute('style')};
-          var mobileZoomStr=img.getAttribute('data-zappy-mobile-zoom');
-          var mobileZoom=parseFloat(mobileZoomStr);
-          var mobileSrc=img.getAttribute('data-zappy-mobile-src');
-          var mobilePos=img.getAttribute('data-zappy-mobile-object-position');
-          var parentOvf=w.parentElement?((w.parentElement.style.overflow||'')+(window.getComputedStyle(w.parentElement).overflow||'')).trim():'';
-          var inConstrainedParent=parentOvf.indexOf('hidden')!==-1||parentOvf.indexOf('clip')!==-1;
-          if(inConstrainedParent){
-            w.style.setProperty('max-width','100%','important');
-          }else{
-            w.style.setProperty('width','100%','important');
-            w.style.setProperty('max-width','100%','important');
-          }
-          if(mobileSrc)img.src=mobileSrc;
-          function _applyZoomCrop(_img,_w,_ePos,_eZoom){
-            var rect=_w.getBoundingClientRect();
-            if(!rect||!rect.width||!rect.height)return;
-            var nW=_img.naturalWidth||0,nH=_img.naturalHeight||0;
-            if(!(nW>0&&nH>0))return;
-            var iA=nW/nH,cA=rect.width/rect.height;
-            var cv=_coverPct(iA,cA);
-            var wP=100,hP=100;
-            if(_eZoom>=1){wP=cv.w*_eZoom;hP=cv.h*_eZoom;}
-            else{var t2=(_eZoom-0.5)/0.5;if(!isFinite(t2))t2=0;t2=Math.max(0,Math.min(1,t2));wP=100+t2*(cv.w-100);hP=100+t2*(cv.h-100);}
-            var p2=_parsePos(_ePos);
-            var lP=(100-wP)*(p2.x/100);
-            var tP=(100-hP)*(p2.y/100);
-            _img.style.setProperty('position','absolute','important');
-            _img.style.setProperty('left',lP+'%','important');
-            _img.style.setProperty('top',tP+'%','important');
-            _img.style.setProperty('width',wP+'%','important');
-            _img.style.setProperty('height',hP+'%','important');
-            _img.style.setProperty('max-width','none','important');
-            _img.style.setProperty('max-height','none','important');
-            _img.style.setProperty('display','block','important');
-            _img.style.setProperty('object-fit',_eZoom<1?'fill':'cover','important');
-            _img.style.setProperty('transform','none','important');
-            _img.style.setProperty('margin','0','important');
-          }
-          if(_sW>0&&_sH>0){
-            var effZoom=(isFinite(mobileZoom)&&mobileZoom>0)?mobileZoom:(parseFloat(img.getAttribute('data-zappy-zoom'))||1);
-            var effPos=mobilePos||img.getAttribute('data-zappy-object-position')||img.style.objectPosition||'50% 50%';
-            w.style.setProperty('overflow','hidden','important');
-            w.style.setProperty('position','relative','important');
-            w.style.setProperty('width','100%','important');
-            w.style.setProperty('max-width','100%','important');
-            if(_sW>0&&_sH>0){w.style.setProperty('padding-bottom','0','important');w.style.setProperty('aspect-ratio',_sW+'/'+_sH,'important');w.style.setProperty('height','auto','important');}
-            _applyZoomCrop(img,w,effPos,effZoom);
-            if(!(img.complete&&img.naturalWidth>0)){
-              (function(_i,_w2,_p,_z){_i.addEventListener('load',function _ol(){_i.removeEventListener('load',_ol);try{_applyZoomCrop(_i,_w2,_p,_z);}catch(e){}});
-              })(img,w,effPos,effZoom);
-            }
-          }else{
-            if(!inConstrainedParent)w.style.setProperty('height','auto','important');
-            img.style.setProperty('position','relative','important');
-            img.style.setProperty('width','100%','important');
-            img.style.setProperty('height','auto','important');
-            img.style.setProperty('max-width','100%','important');
-            img.style.setProperty('max-height',inConstrainedParent?'none':'400px','important');
-            img.style.setProperty('object-fit','cover','important');
-            img.style.setProperty('left','0','important');
-            img.style.setProperty('top','0','important');
-            img.style.setProperty('transform','none','important');
-          }
-        });
-        document.querySelectorAll('img[data-zappy-mobile-src],img[data-zappy-mobile-object-position],img[data-zappy-mobile-zoom]').forEach(function(img){
-          var zw=img.closest('[data-zappy-zoom-wrapper="true"]');
-          if(zw&&!_isHeroBg(zw))return;
-          if(!img._zappyDesktop)img._zappyDesktop={src:img.getAttribute('src'),style:img.getAttribute('style')};
-          var mobileSrc=img.getAttribute('data-zappy-mobile-src');
-          var mobilePos=img.getAttribute('data-zappy-mobile-object-position');
-          var mobileZoom=parseFloat(img.getAttribute('data-zappy-mobile-zoom'));
-          if(mobileSrc)img.src=mobileSrc;
-          if(mobilePos)img.style.setProperty('object-position',mobilePos,'important');
-          if(mobileZoom>1){
-            img.style.setProperty('transform','scale('+mobileZoom+')','important');
-            img.style.setProperty('transform-origin',mobilePos||'50% 50%','important');
-            var p=img.parentElement;
-            if(p)p.style.setProperty('overflow','hidden','important');
-          }
-        });
-      }
-      function revertDesktop(){
-        if(!_applied)return;_applied=false;
-        document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){
-          if(w._zappyDesktop&&w._zappyDesktop.wStyle!=null){w.setAttribute('style',w._zappyDesktop.wStyle);}
-          var img=w.querySelector('img');
-          if(img&&img._zappyDesktop){
-            if(img._zappyDesktop.src!=null)img.setAttribute('src',img._zappyDesktop.src);
-            if(img._zappyDesktop.style!=null)img.setAttribute('style',img._zappyDesktop.style);
-            else img.removeAttribute('style');
-          }
-        });
-        document.querySelectorAll('img[data-zappy-mobile-src],img[data-zappy-mobile-object-position],img[data-zappy-mobile-zoom]').forEach(function(img){
-          var zw=img.closest('[data-zappy-zoom-wrapper="true"]');
-          if(zw&&!_isHeroBg(zw))return;
-          if(img._zappyDesktop){
-            if(img._zappyDesktop.src!=null)img.setAttribute('src',img._zappyDesktop.src);
-            if(img._zappyDesktop.style!=null)img.setAttribute('style',img._zappyDesktop.style);
-            else img.removeAttribute('style');
-          }
-        });
-        _fixHeroBgWrappers();
-        fixDesktopWrappers();
-      }
-      function _fixHeroBgWrappers(){var isMob=window.innerWidth<=768;document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){if(!_isHeroBg(w))return;w.style.setProperty('position','absolute','important');w.style.setProperty('top','0','important');w.style.setProperty('left','0','important');w.style.setProperty('width','100%','important');w.style.setProperty('height','100%','important');w.style.setProperty('max-width','none','important');w.style.setProperty('overflow','hidden','important');w.setAttribute('data-zappy-zoom-wrapper-width-mode','full');var img=w.querySelector('img');if(img){img.style.setProperty('width','100%','important');img.style.setProperty('height','100%','important');img.style.setProperty('object-fit','cover','important');img.style.setProperty('position','relative','important');img.style.setProperty('top','0','important');img.style.setProperty('left','0','important');img.style.setProperty('max-width','none','important');img.style.setProperty('max-height','none','important');img.style.setProperty('display','block','important');if(isMob){var mSrc=img.getAttribute('data-zappy-mobile-src');var mPos=img.getAttribute('data-zappy-mobile-object-position');var mZoom=parseFloat(img.getAttribute('data-zappy-mobile-zoom'));if(mSrc){if(!img._zappyDesktop)img._zappyDesktop={src:img.getAttribute('src'),style:img.getAttribute('style')};img.src=mSrc;}if(mPos)img.style.setProperty('object-position',mPos,'important');if(mZoom>1){img.style.setProperty('transform','scale('+mZoom+')','important');img.style.setProperty('transform-origin',mPos||'50% 50%','important');}}}});}
-      function init(){
-        _fixHeroBgWrappers();
-        var mq=window.matchMedia('(max-width:768px)');
-        function onChange(e){if(e.matches)applyMobile();else revertDesktop();}
-        if(mq.matches)applyMobile();
-        else fixDesktopWrappers();
-        try{mq.addEventListener('change',onChange);}catch(e){mq.addListener(onChange);}
-      }
-      if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
-      else setTimeout(init,50);
     })();
     </script>
 </body>
