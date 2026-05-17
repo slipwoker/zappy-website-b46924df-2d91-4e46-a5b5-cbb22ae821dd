@@ -2981,16 +2981,14 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   max-width: none !important;
 }
 
-/* Grid */
 .index-services-section .index-services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 28px;
   direction: rtl;
   margin-bottom: 48px;
 }
 
-/* Card */
 .index-services-section .index-services-card {
   background: #FFFFFF;
   border-radius: 20px;
@@ -2998,9 +2996,11 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   box-shadow: 0 8px 30px rgba(90, 60, 30, 0.10);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   min-width: 0;
+  align-items: stretch;
+  min-height: 220px;
 }
 
 .index-services-section .index-services-card:hover {
@@ -3013,14 +3013,15 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   box-shadow: 0 12px 40px rgba(90, 60, 30, 0.15);
 }
 
-/* Card Image */
 .index-services-section .index-services-card-image-wrap {
   position: relative;
   margin: 0;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: unset;
   border-radius: 0;
   flex-shrink: 0;
+  width: 320px;
+  min-width: 320px;
 }
 
 .index-services-section .index-services-card-img {
@@ -3059,9 +3060,8 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   border-color: var(--secondary);
 }
 
-/* Card Body */
 .index-services-section .index-services-card-body {
-  padding: 28px 28px 32px;
+  padding: 28px 32px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -8859,8 +8859,7 @@ html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
   padding: 8px !important;
   text-decoration: none !important;
   z-index: 10000 !important;
-  border-radius: 4px !important;
-}
+  border-radius: 4px !important; transform: none; }
 
 /* Enhanced focus indicators */
 *:focus {
@@ -9978,6 +9977,42 @@ html[dir="ltr"] .service-detail.service-reverse .service-detail-content { order:
     height: 0 !important;
     min-width: 0 !important;
     overflow: hidden !important;
+  }
+}
+
+
+/* ZAPPY_PUBLISHED_MOBILE_MEDIA_FIT_FIX */
+@media (max-width: 768px) {
+  /* Published sites can carry stale editor-generated transform:scale(...) rules.
+     Fullscreen hero backgrounds must keep filling their absolute wrapper; mobile
+     crop runtime can still override this with inline styles when needed. */
+  html body main section[class*="hero"] [data-hero-bg],
+  html body main section[class*="hero"] [data-hero-background="true"],
+  html body main section[data-hero-type*="fullscreen"] img[data-hero-bg],
+  html body main section[data-hero-type*="fullscreen"] img[data-hero-background="true"] {
+    transform: none !important;
+    transform-origin: center center !important;
+    max-width: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Filter chip rows should wrap on narrow RTL screens instead of hiding most
+     options off-canvas behind a horizontal scroller. */
+  html body main #showcaseAdvancedFilter .adv-filter-group > .adv-filter-scroll-row,
+  html body main .index-showcase-section #showcaseAdvancedFilter .adv-filter-group > .adv-filter-scroll-row,
+  html body main .index-showcase-section .adv-filter-group > .adv-filter-scroll-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+    height: auto !important;
+    cursor: default !important;
   }
 }
 
